@@ -1,0 +1,207 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>3. Options Dialog</title>
+<link rel="stylesheet" href="valkyrie.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.65.1">
+<link rel="home" href="index.html" title="Valkyrie Documentation">
+<link rel="up" href="manual.html" title="Valkyrie User Manual">
+<link rel="previous" href="mainwindow.status_msg.html" title="2.6. Status Messages">
+<link rel="next" href="options_valgrind.html" title="3.2. Valgrind Options Page">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div><table class="nav" width="100%" cellspacing="3" cellpadding="3" border="0" summary="Navigation header"><tr>
+<td width="22px" align="center" valign="middle"><a accesskey="p" href="mainwindow.status_msg.html"><img src="images/prev.png" width="18" height="21" border="0" alt="Prev"></a></td>
+<td width="25px" align="center" valign="middle"><a accesskey="u" href="manual.html"><img src="images/up.png" width="21" height="18" border="0" alt="Up"></a></td>
+<td width="31px" align="center" valign="middle"><a accesskey="h" href="index.html"><img src="images/home.png" width="27" height="20" border="0" alt="Up"></a></td>
+<th align="center" valign="middle">Valkyrie User Manual</th>
+<td width="22px" align="center" valign="middle"><a accesskey="n" href="options_valgrind.html"><img src="images/next.png" width="18" height="21" border="0" alt="Next"></a></td>
+</tr></table></div>
+<div class="chapter" lang="en">
+<div class="titlepage">
+<div><div><h2 class="title">
+<a name="options_dialog"></a>3. Options Dialog</h2></div></div>
+<div></div>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1"><a href="options_dialog.html#valkyrie">3.1. Valkyrie Options Page</a></span></dt>
+<dt><span class="sect1"><a href="options_valgrind.html">3.2. Valgrind Options Page</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="options_valgrind.html#core_tab">3.2.1. Core Tab</a></span></dt>
+<dt><span class="sect2"><a href="options_valgrind.html#error_tab">3.2.2. Error Reporting Tab</a></span></dt>
+<dt><span class="sect2"><a href="options_valgrind.html#supps_tab">3.2.3. Suppressions Tab</a></span></dt>
+</dl></dd>
+<dt><span class="sect1"><a href="tool-opts.html">3.3. Tool Options Pages</a></span></dt>
+</dl>
+</div>
+<p>The Options dialog has a separate "pane" for Valkyrie and
+Valgrind, as well as for each (supported) Valgrind tool.
+Any flag or option which can be set on the command line is available
+for modification via this dialog.  In addition, Valkyrie has a
+number of preference options that can only be set via this dialog.
+</p>
+<p>On first-time startup, all options are set to their installation
+defaults.  These can be changed via both the GUI and the command-line.
+</p>
+<div class="glosslist"><dl>
+<dt>
+<a name="opt_defaults"></a><span><b class="command">Defaults:</b></span>
+</dt>
+<dd><p>Sets all the options on the current page to the
+    installation defaults.</p></dd>
+<dt>
+<a name="opt_reset"></a><span><b class="command">Reset:</b></span>
+</dt>
+<dd><p>Discards any changes to the current page.</p></dd>
+<dt>
+<a name="opt_apply"></a><span><b class="command">Apply:</b></span>
+</dt>
+<dd><p>Checks the current page's changes are valid, and
+    uses them for the current session only.</p></dd>
+<dt>
+<a name="opt_ok"></a><span><b class="command">Ok:</b></span>
+</dt>
+<dd><p>Calls <span><b class="command">Apply</b></span> and closes the options window.</p></dd>
+<dt>
+<a name="opt_save"></a><span><b class="command">Save:</b></span>
+</dt>
+<dd><p>Checks current page's changes are valid, uses them
+    for the current session, and then saves the changes in
+    <span class="emphasis"><em>ALL</em></span> pages for future sessions too.</p></dd>
+</dl></div>
+<p>Note: Starting valkyrie with command-line options does not save
+these option values to disk.  You must explicitly select
+<span><b class="command">Save</b></span> to do this.</p>
+<div class="sect1" lang="en">
+<div class="titlepage">
+<div><div><h2 class="title" style="clear: both">
+<a name="valkyrie"></a>3.1. Valkyrie Options Page</h2></div></div>
+<div></div>
+</div>
+<div class="glosslist"><dl>
+<dt>
+<a name="tool_tips"></a><span><b class="command">Show tooltips:</b></span>
+</dt>
+<dd><p>Whether tooltips should be shown when the mouse 
+    pointer hovers over a widget.<br>
+    Applied application-wide.</p></dd>
+<dt>
+<a name="tool_label"></a><span><b class="command">Show toolbar text labels:</b></span>
+</dt>
+<dd><p>Whether text labels should be shown next to buttons.
+    <br>Applied application-wide.</p></dd>
+<dt>
+<a name="palette"></a><span><b class="command">Use valkyrie`s palette:</b></span>
+</dt>
+<dd><p>Whether Valkyrie should use your default window palette 
+    (aka "theme") or use her own.<br>
+    Applied application-wide.</p></dd>
+<dt>
+<a name="browser"></a><span><b class="command">Browser:</b></span>
+</dt>
+<dd><p>This determines the default browser to use on
+    clicking an external link.  If this option is empty (default),
+    or fails to launch, a working browser is looked for in the
+    environment variable $BROWSER.  If that also fails, some well
+    known browsers are tried.  If a '-remote' command is given,
+    the "%s" string is replaced with the targed url.<br>
+    Example: "mozilla -remote openUrl(%s,new-tab)".</p></dd>
+<dt>
+<a name="log_dir"></a><span><b class="command">Log Dir:</b></span>
+</dt>
+<dd><p>This determines the default directory for the user to save
+    their log files.<br>
+    Note: When running, Valkyrie generates temporary log files. These
+    are stored under /tmp/valkyrie_logs (this can be changed when building Valkyrie).<br>
+    Example: "./".<br>
+    Example: "/home/myself/valkyrie_logs".</p></dd>
+<dt>
+<a name="working_dir"></a><span><b class="command">Working Dir:</b></span>
+</dt>
+<dd><p>This determines the working directory under which valgrind runs
+    (and therefore also the program being run by Valgrind). This does
+    not change the current working directory of Valkyrie itself, but the
+    that of the program being run.<br>
+    Example: "./".<br>
+    Example: "/home/myself/valkyrie_working_dir".</p></dd>
+<dt>
+<a name="project_file"></a><span><b class="command">Project File:</b></span>
+</dt>
+<dd><p>This option specifies a project file for Valkyrie to use.
+    All settings needed by Valkyrie will be read from this file,
+    and all settings that the user changes will be saved to this file.
+    The file must have the extension ".conf".<br>
+    Example: "myVkProject.conf".</p></dd>
+<dt>
+<a name="user_font_general"></a><span><b class="command">General Font:</b></span>
+</dt>
+<dd><p>This is the general application font.
+    If the 'Using system default' checkbox is enabled, Valkyrie will use
+    your default system font.  If it is disabled, you can click "Choose"
+    to bring up a font dialog to allow you to select an alternative font.<br>
+    Applied application-wide, except for the main display of the
+    tools.</p></dd>
+<dt>
+<a name="user_font_tool"></a><span><b class="command">Tool Font:</b></span>
+</dt>
+<dd><p>This font is used for the main display of the tools,
+    for example the treeview of memcheck.  Clicking "Choose" will bring
+    up a font dialog to allow you to select an alternative font.<br>
+    Applied to all tools.</p></dd>
+<dt>
+<a name="src_lines"></a><span><b class="command">Extra lines shown above/below the target 
+               line:</b></span>
+</dt>
+<dd><p>Memcheck-specific.  This value specifies the number of 
+    source code lines to be shown above and below the target source line when 
+    displaying errors in Memcheck ToolView.<br>
+    Note that changing this value will not take effect until the next
+    run.</p></dd>
+<dt>
+<a name="src_editor"></a><span><b class="command">Source editor:</b></span>
+</dt>
+<dd><p>Specify the 
+    <tt class="computeroutput">/path/to/your/favourite/editor</tt>.
+    In Memcheck, the editor is launched when a stack frame is
+    double-clicked within Memcheck ToolView.  A replacement string
+    "%n" is defined, which will be replaced with the target line number,
+    when available, to open up the editor on that line number.<br>
+    Example: "emacs +%n" =&gt; "emacs +21 /path/to/srcfile".</p></dd>
+<dt>
+<a name="binary"></a><span><b class="command">Binary:</b></span>
+</dt>
+<dd><p>Change the name of the executable to run to 
+    <span class="emphasis"><em>/path/to/your/executable</em></span>.  If you started Valkyrie on 
+    the command line with <tt class="computeroutput">valkyrie /path/to/exe</tt> 
+    then <span class="emphasis"><em>/path/to/exe</em></span> is stored here.</p></dd>
+<dt>
+<a name="bin_flags"></a><span><b class="command">Binary flags:</b></span>
+</dt>
+<dd><p>Change the flags relevant to your executable. If you 
+    started Valkyrie on the command line with <tt class="computeroutput">valkyrie 
+    /path/to/your/exe --your-flags</tt> then 
+    <span class="emphasis"><em>--your-flags</em></span> is stored here.</p></dd>
+<dt>
+<a name="valgrind"></a><span><b class="command">Valgrind:</b></span>
+</dt>
+<dd><p>This is the <span class="emphasis"><em>/path/to/valgrind</em></span>.
+    You may change this to point to a different Valgrind executable.</p></dd>
+</dl></div>
+</div>
+</div>
+<div>
+<br><table class="nav" width="100%" cellspacing="3" cellpadding="2" border="0" summary="Navigation footer">
+<tr>
+<td rowspan="2" width="40%" align="left">
+<a accesskey="p" href="mainwindow.status_msg.html">&lt;&lt; 2.6. Status Messages</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="manual.html">Up</a></td>
+<td rowspan="2" width="40%" align="right"> <a accesskey="n" href="options_valgrind.html">3.2. Valgrind Options Page &gt;&gt;</a>
+</td>
+</tr>
+<tr><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td></tr>
+</table>
+</div>
+</body>
+</html>

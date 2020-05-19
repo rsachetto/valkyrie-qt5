@@ -1,1 +1,0 @@
-# valkyrie-qt5

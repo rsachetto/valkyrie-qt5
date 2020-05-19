@@ -1,0 +1,140 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>3.2. Valgrind Options Page</title>
+<link rel="stylesheet" href="valkyrie.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.65.1">
+<link rel="home" href="index.html" title="Valkyrie Documentation">
+<link rel="up" href="options_dialog.html" title="3. Options Dialog">
+<link rel="previous" href="options_dialog.html" title="3. Options Dialog">
+<link rel="next" href="tool-opts.html" title="3.3. Tool Options Pages">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div><table class="nav" width="100%" cellspacing="3" cellpadding="3" border="0" summary="Navigation header"><tr>
+<td width="22px" align="center" valign="middle"><a accesskey="p" href="options_dialog.html"><img src="images/prev.png" width="18" height="21" border="0" alt="Prev"></a></td>
+<td width="25px" align="center" valign="middle"><a accesskey="u" href="options_dialog.html"><img src="images/up.png" width="21" height="18" border="0" alt="Up"></a></td>
+<td width="31px" align="center" valign="middle"><a accesskey="h" href="index.html"><img src="images/home.png" width="27" height="20" border="0" alt="Up"></a></td>
+<th align="center" valign="middle">3. Options Dialog</th>
+<td width="22px" align="center" valign="middle"><a accesskey="n" href="tool-opts.html"><img src="images/next.png" width="18" height="21" border="0" alt="Next"></a></td>
+</tr></table></div>
+<div class="sect1" lang="en">
+<div class="titlepage">
+<div><div><h2 class="title" style="clear: both">
+<a name="options_valgrind"></a>3.2. Valgrind Options Page</h2></div></div>
+<div></div>
+</div>
+<p>Valgrind`s options page has been divided into three areas which 
+reflect the split between Core options, Error Reporting options, and 
+Suppressions.</p>
+<p>To access valgrind`s manual for help on any of these options, 
+click on the <a href="mainwindow.html#context_help">Context Help</a> toolbutton and then 
+click on the relevant widget.</p>
+<div class="sect2" lang="en">
+<div class="titlepage">
+<div><div><h3 class="title">
+<a name="core_tab"></a>3.2.1. Core Tab</h3></div></div>
+<div></div>
+</div>
+<div class="glosslist"><dl>
+<dt>
+<a name="tool_name"></a><span><b class="command">Main Tool: (disabled)</b></span>
+</dt>
+<dd><p>Valkyrie currently only supports Memcheck.</p></dd>
+<dt>
+<a name="verbosity"></a><span><b class="command">Verbosity level: (disabled)</b></span>
+</dt>
+<dd><p>Valgrind presets this to 1 for generating XML
+    output.  See next entry.</p></dd>
+<dt>
+<a name="xml_format"></a><span><b class="command">Output in XML format: (disabled)</b></span>
+</dt>
+<dd><p>Since Memcheck is currently the only tool supported by 
+    valkyrie, and therefore the flag <tt class="computeroutput">--xml=yes</tt> 
+    is always sent to valgrind, changing this flag is disabled.</p></dd>
+<dt>
+<a name="trace_children"></a><span><b class="command">Trace child processes: (disabled)</b></span>
+</dt>
+<dd><p>Valkyrie can not yet deal with the multiple log files that
+    are generated using this option.</p></dd>
+<dt>
+<a name="track_fds"></a><span><b class="command">Track open file descriptors: (disabled)</b></span>
+</dt>
+<dd><p>Valgrind disables file descriptor leak checking when generating
+    XML output.</p></dd>
+<dt>
+<a name="show_emwarns"></a><span><b class="command">Show warnings about emulation limits: (disabled)</b></span>
+</dt>
+<dd><p>Valgrind disables this option when generating XML output.</p></dd>
+</dl></div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage">
+<div><div><h3 class="title">
+<a name="error_tab"></a>3.2.2. Error Reporting Tab</h3></div></div>
+<div></div>
+</div>
+<div class="glosslist"><dl>
+<dt>
+<a name="error_supps"></a><span><b class="command">Print suppressions for errors: (disabled)</b></span>
+</dt>
+<dd><p>Currently, valgrind disables suppression generation when 
+    generating XML output, therefore changing this flag is disabled.</p></dd>
+<dt>
+<a name="error_limit"></a><span><b class="command">Limit the number of errors shown: (disabled)</b></span>
+</dt>
+<dd><p>Valgrind disables error limits when generating XML output; 
+    therefore changing this flag is disabled.</p></dd>
+<dt>
+<a name="error_db"></a><span><b class="command">Start debugger on error detection</b></span> and
+             <span><b class="command">Debugger: (disabled)</b></span>
+</dt>
+<dd><p>valgrind disables attaching a debugger when generating 
+    XML output; therefore changing these flags is disabled.</p></dd>
+<dt>
+<a name="logging"></a><span><b class="command">Logging Options: (disabled)</b></span>
+</dt>
+<dd><p>Valkyrie needs to control all logging options to
+    gather the XML output from Valgrind; therefore changing these options
+    is disabled.</p></dd>
+</dl></div>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage">
+<div><div><h3 class="title">
+<a name="supps_tab"></a>3.2.3. Suppressions Tab</h3></div></div>
+<div></div>
+</div>
+<p>Regardless of these settings, Valgrind's default suppressions
+(e.g. for glibc, xfree) are always enabled.</p>
+<p>Because Valgrind does not yet support generating suppressions with
+XML output, you still have to generate suppressions by running your
+program through Valgrind directly, using the
+<tt class="computeroutput">--gen-suppressions</tt> flag.</p>
+<p>Once you have your suppressions, write them to a file
+'myproject.supp', and put them either in your project directory.
+Right-clicking on the top 'Suppression Dirs' listbox will allow you to
+add your project directory to those scanned for suppression files
+(files must end in .supp).</p>
+<p>Right-clicking on the 'Available' and 'Selected' listboxes allows
+you to choose what suppression files are currently active for the next
+Valgrind run</p>
+<p>The
+<a href="http://www.valgrind.org/docs/manual/manual.html" target="_top">Valgrind User Manual</a> gives details on
+<a href="http://www.valgrind.org/docs/manual/manual-core.html#manual-core.suppress" target="_top">Suppressing Errors</a> and
+<a href="http://www.valgrind.org/docs/manual/mc-manual.html#mc-manual.suppfiles" target="_top">Writing Suppression Files</a>.</p>
+</div>
+</div>
+<div>
+<br><table class="nav" width="100%" cellspacing="3" cellpadding="2" border="0" summary="Navigation footer">
+<tr>
+<td rowspan="2" width="40%" align="left">
+<a accesskey="p" href="options_dialog.html">&lt;&lt; 3. Options Dialog</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="options_dialog.html">Up</a></td>
+<td rowspan="2" width="40%" align="right"> <a accesskey="n" href="tool-opts.html">3.3. Tool Options Pages &gt;&gt;</a>
+</td>
+</tr>
+<tr><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td></tr>
+</table>
+</div>
+</body>
+</html>
