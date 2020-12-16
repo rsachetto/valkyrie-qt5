@@ -26,9 +26,9 @@ To check out Valkyrie via anonymous, read-only svn access:
   svn co svn://svn.valgrind.org/valkyrie/trunk valkyrie
 
 
-Requirements
+Requirements (for this version)
 ~~~~~~~~~~~~
-Qt (version 4.6 or later, earlier 4.x might also work) <http://www.trolltech.com>
+Qt (version 5.x)  <http://www.trolltech.com>
 Valgrind (3.6.x series) <http://www.valgrind.org>
 
 
